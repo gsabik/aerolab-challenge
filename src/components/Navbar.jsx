@@ -13,7 +13,7 @@ import aeropay from "../assets/icons/aeropay-1.svg";
 const Navbar = () => {
 	return (
 		<Box>
-			<Container maxW="6xl">
+			<Container maxWidth="6xl">
 				<HStack
 					alignItems="center"
 					as="nav"
