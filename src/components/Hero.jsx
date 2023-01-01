@@ -7,7 +7,6 @@ import {
 	Image,
 	Stack, 
 	Text,
-	VStack
 } from "@chakra-ui/react";
 import heroImg from "../assets/illustrations/hero-desktop.png"
 
@@ -16,13 +15,31 @@ const Hero = () => {
 		<Box>
 			<Container maxW="6xl">
 				<Stack direction="row">
-					<VStack w="50%">
-						<Text>Explore the</Text>
-						<Heading>Tech</Heading>
-						<Heading>Zone</Heading>
+					<Flex
+						direction="column"
+						p={0} 
+						h="100%" 
+						w="50%"
+					>
+						<Text fontWeight="medium">EXPLORE THE</Text>
+						<Heading 
+							bgClip="text" 
+							bgGradient="linear(to-r, #176FEB, #FF80FF)" 
+							fontSize="9xl"
+							fontWeight="black"
+							lineHeight="none"
+						>TECH
+						</Heading>
+						<Heading 
+							color="neutral.900" 
+							fontSize="9xl"
+							fontWeight="black"
+							lineHeight="none"
+						>ZONE
+						</Heading>
 						<Text>Here you’ll be able to exchange all of your hard-earned Aeropoints and exchange them for cool tech.</Text>
 						<Button>View all products</Button>
-					</VStack>
+					</Flex>
 					<Flex
 						alignItems="center" 
 						justifyContent="center"
