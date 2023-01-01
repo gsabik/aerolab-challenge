@@ -21,7 +21,7 @@ const Hero = () => {
 						h="100%" 
 						w="50%"
 					>
-						<Text fontWeight="medium">EXPLORE THE</Text>
+						<Text color="neutral.600" fontWeight="medium">EXPLORE THE</Text>
 						<Heading 
 							bgClip="text" 
 							bgGradient="linear(to-r, #176FEB, #FF80FF)" 
@@ -37,7 +37,7 @@ const Hero = () => {
 							lineHeight="none"
 						>ZONE
 						</Heading>
-						<Text>Here you’ll be able to exchange all of your hard-earned Aeropoints and exchange them for cool tech.</Text>
+						<Text color="neutral.600">Here you’ll be able to exchange all of your hard-earned Aeropoints and exchange them for cool tech.</Text>
 						<Button>View all products</Button>
 					</Flex>
 					<Flex
