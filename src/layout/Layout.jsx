@@ -1,12 +1,13 @@
+import { Outlet } from "react-router-dom";
 import { Flex } from "@chakra-ui/react";
 import Navbar from "../components/Navbar";
-import Hero from "../components/Hero";
 
 const Layout = () => {
+
 	return (
 		<Flex direction="column">
 			<Navbar/>
-			<Hero/>
+			<Outlet/>
 		</Flex>
 	);
 }
