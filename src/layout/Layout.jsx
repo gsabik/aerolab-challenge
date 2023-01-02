@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import { Flex } from "@chakra-ui/react";
+import { Box, Container, Flex } from "@chakra-ui/react";
 import Navbar from "../components/Navbar";
 
 const Layout = () => {
@@ -7,7 +7,11 @@ const Layout = () => {
 	return (
 		<Flex direction="column">
 			<Navbar/>
-			<Outlet/>
+			<Box>
+				<Container maxWidth="6xl">
+					<Outlet/>
+				</Container>
+			</Box>
 		</Flex>
 	);
 }
