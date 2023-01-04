@@ -29,6 +29,9 @@ const ProductCard = ({ _id, name, category, cost, img }) => {
 			<Button 
 				bgGradient="linear(to-r, #176FEB, #FF80FF)"
 				color="white" 
+				_hover={{
+					bgGradient: "linear(to-r, #1667D9, #F279F2)"
+				}}
 				w="full"
 			>Redeem for {cost}
 			</Button>
