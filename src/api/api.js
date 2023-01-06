@@ -16,3 +16,19 @@ export const requestProducts = async() => {
 
 	return products;
 }
+
+export const requestUser = async() => {
+	const response = await fetch(`${BASE_URL}/user/me`, {
+		method: "GET",
+		withCredentials: true,
+		headers: {
+			"Content-Type": "aplication/json",
+			"Accept": "application/json",
+			"Authorization": `Bearer ${TOKEN}`
+		}
+	});
+
+	const user = await response.json();
+
+	return user;
+}

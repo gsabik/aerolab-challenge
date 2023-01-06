@@ -10,11 +10,15 @@ import {
 	Text, 
 	useDisclosure
 } from "@chakra-ui/react";
+import { useContext } from "react";
 import aeropay from "../../assets/icons/aeropay-1.svg";
+import { UserContext } from "../../context/UserContext";
 
 const ModalLayout = () => {
+	const { user } = useContext(UserContext);
 	const { isOpen, onOpen, onClose } = useDisclosure();
 
+	console.log(user)
 	return (
 		<>
 			<Button
