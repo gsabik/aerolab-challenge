@@ -5,7 +5,7 @@ import {
 	Image,
 } from "@chakra-ui/react";
 import logo from "../assets/icons/aerolab-logo-1.svg";
-import ModalLayout from "./Modal/ModalLayout";
+import ModalPoints from "./ModalPoints";
 
 const Navbar = () => {
 	return (
@@ -18,7 +18,7 @@ const Navbar = () => {
 					py={6}
 				>
 					<Image src={logo}/>
-					<ModalLayout/>
+					<ModalPoints/>
 				</HStack>
 			</Container>
 		</Box>

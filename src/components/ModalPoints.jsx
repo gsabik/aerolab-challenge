@@ -11,10 +11,11 @@ import {
 	useDisclosure
 } from "@chakra-ui/react";
 import { useContext } from "react";
-import aeropay from "../../assets/icons/aeropay-1.svg";
-import { UserContext } from "../../context/UserContext";
+import { UserContext } from "../context/UserContext";
+import aeropayOne from "../assets/icons/aeropay-1.svg";
+import Aerocard from "./Aerocard";
 
-const ModalLayout = () => {
+const ModalPoints = () => {
 	const { user } = useContext(UserContext);
 	const { isOpen, onOpen, onClose } = useDisclosure();
 
@@ -30,8 +31,8 @@ const ModalLayout = () => {
 				onClick={onOpen}
 			>
 				<HStack>
-					<Image src={aeropay}/>
-					<Text>10.000</Text>
+					<Image src={aeropayOne}/>
+					<Text>{user.points}</Text>
 				</HStack>
 			</Button>
 			<Modal
@@ -43,6 +44,7 @@ const ModalLayout = () => {
 				<ModalContent>
 					<ModalHeader>Add balance</ModalHeader>
 					<ModalBody>
+						<Aerocard/>
 					</ModalBody>
 				</ModalContent>
 			</Modal>
@@ -50,4 +52,4 @@ const ModalLayout = () => {
 	);
 }
 
-export default ModalLayout
+export default ModalPoints
