@@ -58,7 +58,7 @@ const ProductList = () => {
 				w="full"
 			>
 				{
-					filteredProducts.map(product => (<ProductCard key={product._id} {...product}/>))
+					filteredProducts.map(product => (<ProductCard key={product._id} product={product}/>))
 				}
 			</SimpleGrid>
 		</VStack>

@@ -9,20 +9,23 @@ import {
 	Text,
 	VStack 
 } from "@chakra-ui/react";
+import { useContext } from "react";
+import { UserContext } from "../context/UserContext";
 
-const ProductCard = ({ _id, name, category, cost, img }) => {
+const ProductCard = ({ product }) => {
+	const { redeemProduct } = useContext(UserContext);
 
 	return (
 		<VStack spacing={4}>
 			<Card boxShadow="md">
 				<CardBody>
-					<Image py={6} src={img.url}/>
+					<Image py={6} src={product.img.url}/>
 				</CardBody>
 				<Divider/>
 				<CardFooter>
 					<Flex direction="column">
-						<Text fontWeight="semibold">{name}</Text>
-						<Text color="neutral.600">{category}</Text>
+						<Text fontWeight="semibold">{product.name}</Text>
+						<Text color="neutral.600">{product.category}</Text>
 					</Flex>
 				</CardFooter>
 			</Card>
@@ -32,8 +35,9 @@ const ProductCard = ({ _id, name, category, cost, img }) => {
 				_hover={{
 					bgGradient: "linear(to-r, #1667D9, #F279F2)"
 				}}
+				onClick={() => redeemProduct(product)}
 				w="full"
-			>Redeem for {cost}
+			>Redeem for {product.cost}
 			</Button>
 		</VStack>
 	);

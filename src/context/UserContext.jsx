@@ -3,7 +3,7 @@ import {
 	useEffect, 
 	useState 
 } from "react";
-import { requestUser, postPoints } from "../api/api";
+import { requestUser, postPoints, postProduct } from "../api/api";
 import Loader from "../components/Loader";
 
 export const UserContext = createContext();
@@ -26,6 +26,17 @@ export const UserProvider = ({ children }) => {
 		});
 	}
 
+	const redeemProduct = async(product) => {
+
+		return await postProduct(product._id).then(() => {
+			setUser({
+				...user, 
+				points: user.points - product.cost,
+				redeemHistory: [...user.redeemHistory, product]
+			});
+		});
+	}
+
 	useEffect(() => {
 		getUser();
 	}, []);
@@ -37,7 +48,8 @@ export const UserProvider = ({ children }) => {
 	return(
 		<UserContext.Provider value={{
 			user,
-			addPoints
+			addPoints,
+			redeemProduct
 		}}>
 			{children}
 		</UserContext.Provider>																		
