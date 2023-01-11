@@ -6,7 +6,7 @@ export const requestProducts = async() => {
 		method: "GET",
 		withCredentials: true, 
 		headers: {
-			"Content-Type": "aplication/json",
+			"Content-Type": "application/json",
 			"Accept": "application/json",
 			"Authorization": `Bearer ${TOKEN}`
 		}
@@ -22,7 +22,7 @@ export const requestUser = async() => {
 		method: "GET",
 		withCredentials: true,
 		headers: {
-			"Content-Type": "aplication/json",
+			"Content-Type": "application/json",
 			"Accept": "application/json",
 			"Authorization": `Bearer ${TOKEN}`
 		}
@@ -31,4 +31,20 @@ export const requestUser = async() => {
 	const user = await response.json();
 
 	return user;
+}
+
+export const postPoints = async(points) => {
+	const response = await fetch(`${BASE_URL}/user/points`, {
+		method: "POST",
+		body: JSON.stringify({ "amount": points }),
+		headers: {
+			"Content-Type": "application/json",
+			"Accept": "application/json",
+			"Authorization": `Bearer ${TOKEN}`
+		}
+	});
+
+	const postPoints = await response.json();
+
+	return postPoints;
 }
