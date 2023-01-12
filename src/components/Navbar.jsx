@@ -3,7 +3,9 @@ import {
 	Container, 
 	HStack,
 	Image,
+	Text
 } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 import logo from "../assets/icons/aerolab-logo-1.svg";
 import ModalPoints from "./ModalPoints";
 
@@ -18,7 +20,12 @@ const Navbar = () => {
 					py={6}
 				>
 					<Image src={logo}/>
-					<ModalPoints/>
+					<HStack spacing={3}>
+						<Link to="/history">
+							<Text fontWeight="medium">Redeem history</Text>
+						</Link>
+						<ModalPoints/>
+					</HStack>
 				</HStack>
 			</Container>
 		</Box>

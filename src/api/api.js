@@ -33,6 +33,22 @@ export const requestProducts = async() => {
 	return products;
 }
 
+export const requestRedeemHistory = async() => {
+	const response = await fetch(`${BASE_URL}/user/history`, {
+		method: "GET",
+		withCredentials: true, 
+		headers: {
+			"Content-Type": "application/json",
+			"Accept": "application/json",
+			"Authorization": `Bearer ${TOKEN}`
+		}
+	});
+
+	const redeemHistory = await response.json();
+
+	return redeemHistory;
+}
+
 export const postPoints = async(points) => {
 	const response = await fetch(`${BASE_URL}/user/points`, {
 		method: "POST",
@@ -53,7 +69,7 @@ export const postPoints = async(points) => {
 export const postProduct = async(id) => {
 	const response = await fetch(`${BASE_URL}/redeem`, {
 		method: "POST",
-		body: JSON.stringify({ "productID": id }),
+		body: JSON.stringify({ "productId": id }),
 		headers: {
 			"Content-Type": "application/json",
 			"Accept": "application/json",
