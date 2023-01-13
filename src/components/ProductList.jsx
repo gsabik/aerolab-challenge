@@ -15,6 +15,7 @@ import Filters from "./Filters";
 
 const ProductList = () => {
 	const [products, setProducts] = useState([]);
+	const [categoryActive, setCategoryActive] = useState("");
 	const [filterActive, setFilterActive] = useState(FILTERS.MostRecent);
 
 	const getProducts = async() => {
@@ -23,18 +24,22 @@ const ProductList = () => {
 	}
 	
 	const filteredProducts = useMemo(() => {
+		const productsByCaterory = products.filter((product) => 
+			categoryActive ? product.category === categoryActive : products
+		);
+
 		switch(filterActive) {
 			case FILTERS.HighestPrice: {
-				return [...products].sort((a, b) => b.cost - a.cost);
+				return productsByCaterory.sort((a, b) => b.cost - a.cost);
 			}
 
 			case FILTERS.LowestPrice: {
-				return [...products].sort((a, b) => a.cost - b.cost);
+				return productsByCaterory.sort((a, b) => a.cost - b.cost);
 			}
 
-			case FILTERS.MostRecent: default: return products;
+			case FILTERS.MostRecent: default: return productsByCaterory;
 		}
-	}, [products, filterActive]);
+	}, [products, filterActive, categoryActive]);
 
 	useEffect(() => {
 		getProducts();
@@ -51,6 +56,7 @@ const ProductList = () => {
 				FILTERS={FILTERS} 
 				filterActive={filterActive} 
 				setFilterActive={setFilterActive}
+				setCategoryActive={setCategoryActive}
 			/>
 			<SimpleGrid 
 				columns={4} 
