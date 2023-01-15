@@ -13,7 +13,9 @@ import { useContext } from "react";
 import { UserContext } from "../context/UserContext";
 
 const ProductCard = ({ product }) => {
-	const { redeemProduct } = useContext(UserContext);
+	const { user, redeemProduct } = useContext(UserContext);
+
+	const canBuy = product.cost <= user.points;
 
 	return (
 		<VStack spacing={4}>
@@ -30,14 +32,12 @@ const ProductCard = ({ product }) => {
 				</CardFooter>
 			</Card>
 			<Button 
-				bgGradient="linear(to-r, #176FEB, #FF80FF)"
-				color="white" 
-				_hover={{
-					bgGradient: "linear(to-r, #1667D9, #F279F2)"
-				}}
+				bgGradient={canBuy && "linear(to-r, #176FEB, #FF80FF)"}
+				color={canBuy ? "white" : "neutral.600"}
+				disabled={!canBuy} 
 				onClick={() => redeemProduct(product)}
 				w="full"
-			>Redeem for {product.cost}
+			>{canBuy ? `Redeem for ${product.cost}` : `You need ${product.cost - user.points}`}
 			</Button>
 		</VStack>
 	);
