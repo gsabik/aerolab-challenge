@@ -1,3 +1,5 @@
+import { useContext } from "react";
+import { UserContext } from "../context/UserContext";
 import { 
 	Button,
 	Card, 
@@ -5,12 +7,13 @@ import {
 	CardFooter, 
 	Divider, 
 	Flex, 
+	HStack, 
 	Image,
 	Text,
 	VStack 
 } from "@chakra-ui/react";
-import { useContext } from "react";
-import { UserContext } from "../context/UserContext";
+import aeropayThree from "../assets/icons/aeropay-3.svg";
+import aeropayThreeGray from "../assets/icons/aerolab-logo-gray.svg";
 
 const ProductCard = ({ product }) => {
 	const { user, redeemProduct } = useContext(UserContext);
@@ -37,7 +40,12 @@ const ProductCard = ({ product }) => {
 				disabled={!canBuy} 
 				onClick={() => redeemProduct(product)}
 				w="full"
-			>{canBuy ? `Redeem for ${product.cost}` : `You need ${product.cost - user.points}`}
+			>
+				<HStack>
+					<Text>{canBuy ? "Redeem for" : "You need"}</Text>
+					<Image src={canBuy ? aeropayThree : aeropayThreeGray}/>
+					<Text>{(canBuy ? product.cost : product.cost - user.points).toLocaleString()}</Text>
+				</HStack>
 			</Button>
 		</VStack>
 	);

@@ -38,7 +38,7 @@ const ModalPoints = () => {
 			>
 				<HStack>
 					<Image src={aeropayOne}/>
-					<Text>{user.points}</Text>
+					<Text>{user.points.toLocaleString()}</Text>
 				</HStack>
 			</Button>
 			<Modal
@@ -65,7 +65,7 @@ const ModalPoints = () => {
 											onClick={() => setPoints(amount)} 
 											key={amount}
 											w="full"
-										>{amount}
+										>{amount.toLocaleString()}
 										</Button>
 									))
 								}

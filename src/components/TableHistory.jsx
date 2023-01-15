@@ -40,7 +40,7 @@ const TableHistory = () => {
 								<Td fontWeight="semibold">{product.name}</Td>
 								<Td>{product.productId}</Td>
 								<Td>{product.createDate}</Td>
-								<Td>{product.cost}</Td>
+								<Td>{product.cost.toLocaleString()}</Td>
 							</Tr>
 						))
 					}
