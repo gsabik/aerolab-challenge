@@ -4,7 +4,9 @@ import {
 	useState 
 } from "react";
 import { 
+	Flex,
 	Heading, 
+	HStack, 
 	SimpleGrid, 
 	VStack
 } from "@chakra-ui/react";
@@ -12,38 +14,51 @@ import { requestProducts } from "../api/api";
 import { FILTERS } from "../utils";
 import ProductCard from "./ProductCard";
 import Filters from "./Filters";
+import Pagination from "./Pagination";
 
 const ProductList = () => {
 	const [products, setProducts] = useState([]);
 	const [categoryActive, setCategoryActive] = useState("");
 	const [filterActive, setFilterActive] = useState(FILTERS.MostRecent);
+	const [currentPage, setCurrentePage] = useState(1);
+	const [productsPerPage, setProductsPerPage] = useState(16);
 
 	const getProducts = async() => {
 		const data = await requestProducts();
 		setProducts(data);
 	}
-	
+
 	const filteredProducts = useMemo(() => {
 		const productsByCaterory = products.filter((product) => 
-			categoryActive ? product.category === categoryActive : products
+		categoryActive ? product.category === categoryActive : products
 		);
-
+		
 		switch(filterActive) {
 			case FILTERS.HighestPrice: {
 				return productsByCaterory.sort((a, b) => b.cost - a.cost);
 			}
-
+			
 			case FILTERS.LowestPrice: {
 				return productsByCaterory.sort((a, b) => a.cost - b.cost);
 			}
-
+			
 			case FILTERS.MostRecent: default: return productsByCaterory;
 		}
 	}, [products, filterActive, categoryActive]);
+	
+	// Get current product
+	const indexOfLastProduct = currentPage * productsPerPage;
+	const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+	const currentProducts = filteredProducts.slice(indexOfFirstProduct, indexOfLastProduct);
+
+	const paginate = (pageNumber) => setCurrentePage(pageNumber); 
+
+	console.log(currentPage)
 
 	useEffect(() => {
 		getProducts();
 	}, []);
+	
 
 	return (
 		<VStack 
@@ -52,19 +67,27 @@ const ProductList = () => {
 			spacing={12}
 		>
 			<Heading color="neutral.900" fontWeight="black">TECH PRODUCTS</Heading>
-			<Filters 
-				FILTERS={FILTERS} 
-				filterActive={filterActive} 
-				setFilterActive={setFilterActive}
-				setCategoryActive={setCategoryActive}
-			/>
+			<Flex w="full">
+				<Filters 
+					FILTERS={FILTERS} 
+					filterActive={filterActive} 
+					setFilterActive={setFilterActive}
+					setCategoryActive={setCategoryActive}
+				/>
+				<Pagination
+					currentPage={currentPage} 
+					productsPerPage={productsPerPage} 
+					totalProducts={products.length}
+					paginate={paginate}
+				/>
+			</Flex>
 			<SimpleGrid 
 				columns={4} 
 				gap={6} 
 				w="full"
 			>
 				{
-					filteredProducts.map(product => (<ProductCard key={product._id} product={product}/>))
+					currentProducts.map(product => (<ProductCard key={product._id} product={product}/>))
 				}
 			</SimpleGrid>
 		</VStack>

@@ -8,12 +8,7 @@ import {
 } from "@chakra-ui/react";
 import { CATEGORIES } from "../utils";
 
-const Filters = ({ 
-	FILTERS, 
-	filterActive, 
-	setFilterActive,
-	setCategoryActive
-}) => {
+const Filters = ({ FILTERS, filterActive, setFilterActive, setCategoryActive }) => {
 
 	const filters = [
 		FILTERS.MostRecent,
@@ -22,7 +17,7 @@ const Filters = ({
 	];
 
 	return (
-		<Flex justifyContent="space-between" direction="row" w="full">
+		<HStack spacing={6} w="full">
 			<HStack spacing={3}>
 				<Text noOfLines={1}>Filter by:</Text>
 				<Select w="fit-content"
@@ -56,7 +51,7 @@ const Filters = ({
 					}
 				</HStack>
 			</HStack>
-		</Flex>
+		</HStack>
 	);
 }
 

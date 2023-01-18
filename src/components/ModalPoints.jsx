@@ -30,8 +30,8 @@ const ModalPoints = () => {
 		<>
 			<Button
 				bgColor="white"
-				boxShadow="sm"
 				border="1px"
+				boxShadow="sm"
 				borderColor="#DAE4F2"
 				borderRadius="xl"
 				onClick={onOpen}
