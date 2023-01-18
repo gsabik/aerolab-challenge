@@ -1,8 +1,7 @@
 import { 
 	Box,
 	Button,
-	Flex,
-	HStack, 
+	HStack,
 	Image,
 	Text
 } from "@chakra-ui/react";
@@ -22,25 +21,27 @@ const Pagination = ({ currentPage, productsPerPage, totalProducts, paginate }) =
 			borderRadius="xl" 
 			p={3}
 		>
-			<Flex direction="row" w="full">
+			<HStack spacing={3} w="full">
 				<Button 
-					onClick={() => paginate(pageNumbers[0])}
+					disabled={currentPage === 1}
 					h="20px"
+					onClick={() => paginate(pageNumbers[0])}
 					size="xs"	
 					transform="rotate(180deg)"
 				>
 					<Image alt={chevron} src={chevron}/>
 				</Button>
 				<Text noOfLines={1}>Page {currentPage} of 2</Text>
-				<Button 
+				<Button
+					disabled={currentPage === 2} 
 					onClick={() => paginate(pageNumbers[1])}
 					size="xs"
 				>
 					<Image alt={chevron} src={chevron}/>
 				</Button>
-			</Flex>
+			</HStack>
 		</Box>
-	)
+	);
 }
 
 export default Pagination

@@ -1,12 +1,7 @@
-import { 
-	useEffect, 
-	useMemo, 
-	useState 
-} from "react";
+import { useEffect, useMemo, useState } from "react";
 import { 
 	Flex,
 	Heading, 
-	HStack, 
 	SimpleGrid, 
 	VStack
 } from "@chakra-ui/react";
@@ -21,7 +16,7 @@ const ProductList = () => {
 	const [categoryActive, setCategoryActive] = useState("");
 	const [filterActive, setFilterActive] = useState(FILTERS.MostRecent);
 	const [currentPage, setCurrentePage] = useState(1);
-	const [productsPerPage, setProductsPerPage] = useState(16);
+	const [productsPerPage] = useState(16);
 
 	const getProducts = async() => {
 		const data = await requestProducts();
@@ -53,13 +48,10 @@ const ProductList = () => {
 
 	const paginate = (pageNumber) => setCurrentePage(pageNumber); 
 
-	console.log(currentPage)
-
 	useEffect(() => {
 		getProducts();
 	}, []);
 	
-
 	return (
 		<VStack 
 			alignItems="flex-start" 
@@ -67,7 +59,7 @@ const ProductList = () => {
 			spacing={12}
 		>
 			<Heading color="neutral.900" fontWeight="black">TECH PRODUCTS</Heading>
-			<Flex w="full">
+			<Flex justifyContent="space-between" w="full">
 				<Filters 
 					FILTERS={FILTERS} 
 					filterActive={filterActive} 

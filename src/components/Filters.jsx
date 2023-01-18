@@ -1,7 +1,6 @@
 import { 
 	Button,
 	Divider,
-	Flex,
 	HStack,
 	Select,
 	Text 
@@ -17,7 +16,7 @@ const Filters = ({ FILTERS, filterActive, setFilterActive, setCategoryActive }) 
 	];
 
 	return (
-		<HStack spacing={6} w="full">
+		<HStack spacing={6} w="fit-content">
 			<HStack spacing={3}>
 				<Text noOfLines={1}>Filter by:</Text>
 				<Select w="fit-content"
