@@ -10,6 +10,7 @@ import { FILTERS } from "../utils";
 import ProductCard from "./ProductCard";
 import Filters from "./Filters";
 import Pagination from "./Pagination";
+import Count from "./Count";
 
 const ProductList = () => {
 	const [products, setProducts] = useState([]);
@@ -82,6 +83,26 @@ const ProductList = () => {
 					currentProducts.map(product => (<ProductCard key={product._id} product={product}/>))
 				}
 			</SimpleGrid>
+			<Flex 
+				alignItems="center" 
+				direction="row" 
+				justifyContent="flex-end"
+				w="full"
+			>
+				<Flex alignItems="center" direction="row" justifyContent="space-between" w="55%">
+					<Count 
+						current={currentProducts.length} 
+						currentPage={currentPage}
+						total={products.length}
+					/>
+					<Pagination
+						currentPage={currentPage} 
+						productsPerPage={productsPerPage} 
+						paginate={paginate}
+						totalProducts={products.length}
+					/>
+				</Flex>
+			</Flex>
 		</VStack>
 	);
 }
