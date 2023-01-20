@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { UserContext } from "../context/UserContext";
 import { 
 	Button, 
+	Divider, 
 	Flex, 
 	HStack,
 	Image,
@@ -21,9 +22,7 @@ import Aerocard from "./Aerocard";
 
 const ModalPoints = () => {
 	const [points, setPoints] = useState(false);
-
 	const { user, addPoints } = useContext(UserContext);
-	
 	const { isOpen, onOpen, onClose } = useDisclosure();
 
 	return (
@@ -51,8 +50,8 @@ const ModalPoints = () => {
 				<ModalOverlay/>
 				<ModalContent>
 					<ModalHeader>Add balance</ModalHeader>
-					<ModalBody>
-						<VStack spacing={8}>
+					<ModalBody py={6}>
+						<VStack spacing={6}>
 							<Aerocard/>
 							<HStack justifyContent="space-between" w="full">
 								{
