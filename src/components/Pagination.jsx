@@ -31,7 +31,18 @@ const Pagination = ({ currentPage, productsPerPage, totalProducts, paginate }) =
 				>
 					<Image alt={chevron} src={chevron}/>
 				</Button>
-				<Text noOfLines={1}>Page {currentPage} of 2</Text>
+				<Text 
+					color="neutral.600" 
+					fontWeight="semibold" 
+					noOfLines={1}
+				>Page  
+					<Text 
+						as="span" 
+						bgClip="text" 
+						bgGradient="linear(102.47deg, #176FEB -5.34%, #FF80FF 106.58%)"
+					> {currentPage} of 2
+					</Text>
+				</Text>
 				<Button
 					disabled={currentPage === 2} 
 					onClick={() => paginate(pageNumbers[1])}
