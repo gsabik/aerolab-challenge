@@ -2,15 +2,15 @@ import {
 	Button, 
 	Flex, 
 	Heading, 
+	HStack, 
 	Image,
-	Stack, 
 	Text,
 } from "@chakra-ui/react";
 import heroImg from "../assets/illustrations/hero-desktop.png";
 
 const Hero = () => {
 	return (
-		<Stack direction="row">
+		<HStack>
 			<Flex
 				direction="column"
 				alignSelf="flex-end"
@@ -19,9 +19,9 @@ const Hero = () => {
 				w="50%"
 			>
 				<Text color="neutral.600" fontWeight="medium">EXPLORE THE</Text>
-				<Heading 
+				<Heading
 					bgClip="text" 
-					bgGradient="linear(to-r, #176FEB, #FF80FF)" 
+					bgGradient="linear(102.47deg, #176FEB -5.34%, #FF80FF 106.58%)" 
 					fontSize="9xl"
 					fontWeight="black"
 					lineHeight="none"
@@ -35,9 +35,14 @@ const Hero = () => {
 					pb={6}
 				>ZONE
 				</Heading>
-				<Text color="neutral.600" pb={12}>Here you’ll be able to exchange all of your hard-earned Aeropoints and exchange them for cool tech.</Text>
+				<Text 
+					color="neutral.600"
+					fontWeight="semibold" 
+					pb={12}
+				>Here you’ll be able to exchange all of your hard-earned Aeropoints and exchange them for cool tech.
+				</Text>
 				<Button
-					bgGradient="linear(to-r, #176FEB, #FF80FF)"
+					bgGradient="linear(102.47deg, #176FEB -5.34%, #FF80FF 106.58%)"
 					borderRadius="2xl"
 					color="white"
 					h={14}
@@ -51,11 +56,9 @@ const Hero = () => {
 				justifyContent="center"
 				w="50%"
 			>
-				<Image
-					src={heroImg}
-				/>
+				<Image alt={heroImg} src={heroImg}/>
 			</Flex>
-		</Stack>
+		</HStack>
 	);
 }
 
