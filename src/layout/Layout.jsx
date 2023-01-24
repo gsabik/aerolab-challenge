@@ -8,7 +8,7 @@ const Layout = () => {
 		<Flex direction="column">
 			<Navbar/>
 			<Box>
-				<Container maxWidth="6xl">
+				<Container maxWidth="8xl">
 					<Outlet/>
 				</Container>
 			</Box>
