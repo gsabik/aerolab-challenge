@@ -1,0 +1,4 @@
+.chakra-modal__content-container {
+    justify-content: flex-start;
+    padding-inline: 2rem;
+}

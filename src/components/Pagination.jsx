@@ -1,6 +1,7 @@
 import { 
 	Box,
 	Button,
+	Flex,
 	HStack,
 	Image,
 	Text
@@ -24,29 +25,24 @@ const Pagination = ({ currentPage, productsPerPage, totalProducts, paginate }) =
 			<HStack spacing={3} w="full">
 				<Button 
 					disabled={currentPage === 1}
-					h="20px"
 					onClick={() => paginate(pageNumbers[0])}
-					size="xs"	
+					size="sm"	
 					transform="rotate(180deg)"
 				>
-					<Image alt={chevron} src={chevron}/>
+					<Image
+						alt={chevron} 
+						src={chevron}
+					/>
 				</Button>
-				<Text 
-					color="neutral.600" 
-					fontWeight="semibold" 
-					noOfLines={1}
-				>Page  
-					<Text 
-						as="span" 
-						bgClip="text" 
-						bgGradient="linear(102.47deg, #176FEB -5.34%, #FF80FF 106.58%)"
-					> {currentPage} of 2
+				<Flex>
+					<Text color="neutral.600" fontWeight="semibold">
+						Page <Text as="span" bgClip="text" bgGradient="linear(102.47deg, #176FEB -5.34%, #FF80FF 106.58%)">{currentPage} of 2</Text>
 					</Text>
-				</Text>
+				</Flex>
 				<Button
 					disabled={currentPage === 2} 
 					onClick={() => paginate(pageNumbers[1])}
-					size="xs"
+					size="sm"
 				>
 					<Image alt={chevron} src={chevron}/>
 				</Button>
