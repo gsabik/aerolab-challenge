@@ -75,7 +75,7 @@ const ProductList = () => {
 				/>
 			</Flex>
 			<SimpleGrid 
-				columns={4} 
+				columns={[1, 2, 3, 4]} 
 				gap={6} 
 				w="full"
 			>

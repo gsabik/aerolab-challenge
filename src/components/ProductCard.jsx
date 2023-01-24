@@ -22,9 +22,14 @@ const ProductCard = ({ product }) => {
 
 	return (
 		<VStack spacing={4}>
-			<Card boxShadow="md">
+			<Card boxShadow="lg" w="full">
 				<CardBody>
-					<Image py={6} src={product.img.url}/>
+					<Image
+						alt={product.name} 
+						py={6} 
+						src={product.img.url} 
+						w="280px"
+					/>
 				</CardBody>
 				<Divider/>
 				<CardFooter>
@@ -36,9 +41,16 @@ const ProductCard = ({ product }) => {
 			</Card>
 			<Button 
 				bgGradient={canBuy && "linear(to-r, #176FEB, #FF80FF)"}
+				borderRadius="lg"
 				color={canBuy ? "white" : "neutral.600"}
 				disabled={!canBuy} 
+				_hover={
+					canBuy && {
+						bgGradient: "linear-gradient(102.47deg, #1667D9 -5.34%, #F279F2 106.58%)"
+					}
+				}
 				onClick={() => redeemProduct(product)}
+				h="60px"
 				w="full"
 			>
 				<HStack>
