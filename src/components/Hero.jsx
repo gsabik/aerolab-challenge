@@ -1,64 +1,77 @@
 import { 
-	Button, 
+	Button,
 	Flex, 
 	Heading, 
-	HStack, 
 	Image,
-	Text,
+	Stack,
+	Text, 
+	VStack
 } from "@chakra-ui/react";
 import heroImg from "../assets/illustrations/hero-desktop.png";
+import arrowDown from "../assets/icons/Icons.svg";
 
 const Hero = () => {
 	return (
-		<HStack>
-			<Flex
-				direction="column"
-				alignSelf="flex-end"
-				p={0} 
-				h="100%" 
-				w="50%"
+		<Stack
+			direction={{ base: "column", lg: "row" }}
+			pb={24}
+		>
+			<Flex 
+				alignSelf={{base: "center", lg: "flex-end"}} 
+				direction="column" 
 			>
-				<Text color="neutral.600" fontWeight="medium">EXPLORE THE</Text>
-				<Heading
-					bgClip="text" 
-					bgGradient="linear(102.47deg, #176FEB -5.34%, #FF80FF 106.58%)" 
-					fontSize="9xl"
-					fontWeight="black"
-					lineHeight="none"
-				>TECH
-				</Heading>
-				<Heading 
-					color="neutral.900" 
-					fontSize="9xl"
-					fontWeight="black"
-					lineHeight="none"
-					pb={6}
-				>ZONE
-				</Heading>
-				<Text 
-					color="neutral.600"
-					fontWeight="semibold" 
+    			<VStack 
+					alignItems={{base: "center", lg: "flex-start"}}
 					pb={12}
-				>Here you’ll be able to exchange all of your hard-earned Aeropoints and exchange them for cool tech.
+				>
+				<Text 
+					color="neutral.600" 
+					fontWeight="semibold" 
+					textTransform="uppercase"
+				>Explore the
 				</Text>
-				<Button
-					bgGradient="linear(102.47deg, #176FEB -5.34%, #FF80FF 106.58%)"
-					borderRadius="2xl"
-					color="white"
-					h={14}
-					px={6}
-					w="fit-content"
-				>VIEW ALL PRODUCTS
-				</Button>
+					<Heading 
+						fontSize="200px" 
+						fontWeight="extrabold" 
+						lineHeight="80%"
+						pb={6}
+					>
+						<Text 
+							as="span" 
+							bgClip="text" 
+							bgGradient="linear(102.47deg, #176FEB -5.34%, #FF80FF 106.58%)"
+						>TECH
+						</Text>
+						<br/>
+						<Text as="span" color="neutral.900">ZONE</Text>
+					</Heading>
+					<Text color="neutral.600" fontWeight="semibold">Here you’ll be able to exchange all of your hard-earned <br/> Aeropoints and exchange them for cool tech.</Text>
+    			</VStack>
+				<Flex justifyContent={{base: "center", lg:"flex-start"}} w="full">
+					<Button
+						alignItems="center" 
+						borderRadius="2xl"
+						bgGradient="linear(102.47deg, #176FEB -5.34%, #FF80FF 106.58%)" 
+						color="white" 
+						h="75px"
+						_hover={{
+							bgGradient: "linear-gradient(102.47deg, #1667D9 -5.34%, #F279F2 106.58%)"
+						}}
+						px={12}
+						textTransform="uppercase"
+						w="fit-content"
+					>
+						<a href="#">View all products</a>
+						<Image alt={arrowDown} src={arrowDown}/>
+					</Button>
+				</Flex>
 			</Flex>
-			<Flex
-				alignItems="center" 
-				justifyContent="center"
-				w="50%"
-			>
-				<Image alt={heroImg} src={heroImg}/>
-			</Flex>
-		</HStack>
+			<Image 
+				alt={heroImg} 
+				src={heroImg}
+				w="750px"
+			/>
+		</Stack>
 	);
 }
 
