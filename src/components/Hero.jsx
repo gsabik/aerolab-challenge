@@ -1,9 +1,8 @@
-import { 
+import {
 	Button,
 	Flex, 
 	Heading, 
 	Image,
-	Stack,
 	Text, 
 	VStack
 } from "@chakra-ui/react";
@@ -12,24 +11,25 @@ import arrowDown from "../assets/icons/Icons.svg";
 
 const Hero = () => {
 	return (
-		<Stack
-			direction={{ base: "column", lg: "row" }}
+		<Flex
+			alignItems={{ base: "center", xl:"flex-end" }}
+			direction={{ base: "column", xl: "row" }}
 			pb={24}
+			pt={{ base: 24, xl: 0}}
 		>
-			<Flex 
-				alignSelf={{base: "center", lg: "flex-end"}} 
-				direction="column" 
-			>
-    			<VStack 
-					alignItems={{base: "center", lg: "flex-start"}}
+			<Flex direction="column">
+				<VStack 
+					alignItems={{ base: "center", xl: "flex-start"}}
+					direction="column"
+					spacing={6}
 					pb={12}
 				>
-				<Text 
-					color="neutral.600" 
-					fontWeight="semibold" 
-					textTransform="uppercase"
-				>Explore the
-				</Text>
+					<Text 
+						color="neutral.600" 
+						fontWeight="semibold" 
+						textTransform="uppercase"
+					>Explore the
+					</Text>
 					<Heading 
 						fontSize="200px" 
 						fontWeight="extrabold" 
@@ -46,8 +46,8 @@ const Hero = () => {
 						<Text as="span" color="neutral.900">ZONE</Text>
 					</Heading>
 					<Text color="neutral.600" fontWeight="semibold">Here you’ll be able to exchange all of your hard-earned <br/> Aeropoints and exchange them for cool tech.</Text>
-    			</VStack>
-				<Flex justifyContent={{base: "center", lg:"flex-start"}} w="full">
+				</VStack>
+				<Flex justifyContent={{ base: "center", xl: "flex-start" }} w="full">
 					<Button
 						alignItems="center" 
 						borderRadius="2xl"
@@ -66,12 +66,26 @@ const Hero = () => {
 					</Button>
 				</Flex>
 			</Flex>
-			<Image 
-				alt={heroImg} 
-				src={heroImg}
-				w="750px"
-			/>
-		</Stack>
+			<Flex 
+				position="relative"
+				justifyContent="center" 
+				w="full" 
+			>
+				<Image 
+					h="750px" 
+					src={heroImg} 
+					zIndex={1}
+				/>
+				<Flex
+					bgGradient="linear-gradient(102.47deg, #7296EB -5.34%, #EAC0E9 106.58%, #EAC0E9 106.58%)"
+					bottom={0}
+					borderRadius="20%"
+					position="absolute"
+					h="600px"
+					w="700px"
+				/>
+			</Flex>
+		</Flex>
 	);
 }
 
