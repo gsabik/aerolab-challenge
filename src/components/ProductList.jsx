@@ -27,7 +27,7 @@ const ProductList = () => {
 
 	const filteredProducts = useMemo(() => {
 		const productsByCaterory = products.filter((product) => 
-		categoryActive ? product.category === categoryActive : products
+		categoryActive === "All Products" ? products : categoryActive === product.category
 		);
 		
 		switch(filterActive) {
@@ -66,6 +66,7 @@ const ProductList = () => {
 					FILTERS={FILTERS} 
 					filterActive={filterActive} 
 					setFilterActive={setFilterActive}
+					categoryActive={categoryActive}
 					setCategoryActive={setCategoryActive}
 				/>
 				<Pagination

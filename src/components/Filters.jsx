@@ -1,13 +1,20 @@
 import { 
+	Box,
 	Button,
 	Divider,
 	HStack,
+	Menu,
+	MenuButton,
+	MenuItem,
+	MenuItemOption,
+	MenuList,
+	MenuOptionGroup,
 	Select,
 	Text 
 } from "@chakra-ui/react";
 import { CATEGORIES } from "../utils";
 
-const Filters = ({ FILTERS, filterActive, setFilterActive, setCategoryActive }) => {
+const Filters = ({ FILTERS, filterActive, setFilterActive, categoryActive, setCategoryActive }) => {
 
 	const filters = [
 		FILTERS.MostRecent,
@@ -19,19 +26,34 @@ const Filters = ({ FILTERS, filterActive, setFilterActive, setCategoryActive }) 
 		<HStack spacing={6} w="fit-content">
 			<HStack spacing={3}>
 				<Text noOfLines={1}>Filter by:</Text>
-				<Select w="fit-content"
-					onChange={(e) => setCategoryActive(e.target.value)}
-				>
-					<option value="" defaultChecked>All Products</option>
-					{
-						CATEGORIES.map(category => (
-							<option
-								key={category}
-							>{category}
-							</option>
-						))
-					}
-				</Select>
+				<Menu>
+					<MenuButton
+						as={Button}
+						border="1px"
+						borderColor="#DAE4F2"
+						borderRadius="xl"
+						color="neutral.600"
+						variant="outlined"
+					>
+						<HStack spacing={12}>
+							<Text>{categoryActive || "All Products"}</Text>
+							<Box color="black" fontSize="10px">▼</Box>
+						</HStack>
+					</MenuButton>
+					<MenuList>
+						{
+							CATEGORIES.map(category => (
+								<MenuItem
+									color="neutral.600" 
+									fontWeight="semibold"
+									key={category} 
+									onClick={(e) => setCategoryActive(e.target.innerText)}
+								>{category}
+								</MenuItem>
+							))
+						}
+					</MenuList>
+				</Menu>
 			</HStack>
 			<HStack spacing={3}>
 				<Divider orientation="vertical"/>

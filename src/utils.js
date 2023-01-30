@@ -1,6 +1,7 @@
 export const AMOUNTS = [1000, 5000, 7000];
 
 export const CATEGORIES = [
+	"All Products",
 	"Laptops",
 	"Cameras",
 	"Smart Home",
