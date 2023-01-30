@@ -3,6 +3,7 @@ import {
 	Flex,
 	Heading, 
 	SimpleGrid, 
+	Stack, 
 	VStack
 } from "@chakra-ui/react";
 import { requestProducts } from "../api/api";
@@ -89,7 +90,13 @@ const ProductList = () => {
 				justifyContent="flex-end"
 				w="full"
 			>
-				<Flex alignItems="center" direction="row" justifyContent="space-between" w="55%">
+				<Stack 
+					alignItems="center" 
+					direction={{ base: "column-reverse", xl: "row" }}
+					justifyContent="space-between" 
+					spacing={6}
+					w={{ base: "full", xl: "55%" }}
+				>
 					<Count 
 						current={currentProducts.length} 
 						currentPage={currentPage}
@@ -101,7 +108,7 @@ const ProductList = () => {
 						paginate={paginate}
 						totalProducts={products.length}
 					/>
-				</Flex>
+				</Stack>
 			</Flex>
 		</VStack>
 	);
