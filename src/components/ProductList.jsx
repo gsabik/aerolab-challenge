@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { 
+	Box,
 	Flex,
 	Heading, 
 	SimpleGrid, 
@@ -15,7 +16,7 @@ import Count from "./Count";
 
 const ProductList = () => {
 	const [products, setProducts] = useState([]);
-	const [categoryActive, setCategoryActive] = useState("");
+	const [categoryActive, setCategoryActive] = useState("All Products");
 	const [filterActive, setFilterActive] = useState(FILTERS.MostRecent);
 	const [currentPage, setCurrentePage] = useState(1);
 	const [productsPerPage] = useState(16);
@@ -69,12 +70,14 @@ const ProductList = () => {
 					categoryActive={categoryActive}
 					setCategoryActive={setCategoryActive}
 				/>
-				<Pagination
-					currentPage={currentPage} 
-					productsPerPage={productsPerPage} 
-					totalProducts={products.length}
-					paginate={paginate}
-				/>
+				<Box display={{ base: "none", md: "flex" }}>
+					<Pagination
+						currentPage={currentPage} 
+						productsPerPage={productsPerPage} 
+						totalProducts={products.length}
+						paginate={paginate}
+					/>
+				</Box>
 			</Flex>
 			<SimpleGrid 
 				columns={[1, 2, 3, 4]} 

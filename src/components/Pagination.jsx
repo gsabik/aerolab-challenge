@@ -21,6 +21,7 @@ const Pagination = ({ currentPage, productsPerPage, totalProducts, paginate }) =
 			borderColor="#DAE4F2" 
 			borderRadius="xl" 
 			p={3}
+			h="fit-content"
 		>
 			<HStack spacing={3} w="full">
 				<Button 

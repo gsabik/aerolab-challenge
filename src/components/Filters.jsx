@@ -6,16 +6,13 @@ import {
 	Menu,
 	MenuButton,
 	MenuItem,
-	MenuItemOption,
 	MenuList,
-	MenuOptionGroup,
-	Select,
+	Stack,
 	Text 
 } from "@chakra-ui/react";
 import { CATEGORIES } from "../utils";
 
 const Filters = ({ FILTERS, filterActive, setFilterActive, categoryActive, setCategoryActive }) => {
-
 	const filters = [
 		FILTERS.MostRecent,
 		FILTERS.LowestPrice,
@@ -23,9 +20,11 @@ const Filters = ({ FILTERS, filterActive, setFilterActive, categoryActive, setCa
 	];
 
 	return (
-		<HStack spacing={6} w="fit-content">
+		<Stack direction={{ base: "column", xl: "row" }} spacing={6}>
 			<HStack spacing={3}>
-				<Text noOfLines={1}>Filter by:</Text>
+				<Box display={{ base: "none", xl: "flex" }}>
+					<Text noOfLines={1}>Filter by:</Text>
+				</Box>
 				<Menu>
 					<MenuButton
 						as={Button}
@@ -56,8 +55,10 @@ const Filters = ({ FILTERS, filterActive, setFilterActive, categoryActive, setCa
 				</Menu>
 			</HStack>
 			<HStack spacing={3}>
-				<Divider orientation="vertical"/>
-				<Text noOfLines={1}>Sort by:</Text>
+				<Divider display={{ base: "none", xl:"flex" }} orientation="vertical"/>
+				<Box display={{ base: "none", xl: "flex" }}>
+					<Text noOfLines={1}>Sort by:</Text>
+				</Box>
 				<HStack spacing={6}>
 					{
 						filters.map(filter => (
@@ -72,7 +73,7 @@ const Filters = ({ FILTERS, filterActive, setFilterActive, categoryActive, setCa
 					}
 				</HStack>
 			</HStack>
-		</HStack>
+		</Stack>
 	);
 }
 
