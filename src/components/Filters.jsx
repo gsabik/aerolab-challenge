@@ -63,11 +63,19 @@ const Filters = ({ FILTERS, filterActive, setFilterActive, categoryActive, setCa
 					{
 						filters.map(filter => (
 							<Button
-								bgGradient={filter === filterActive && "linear(to-r, #176FEB, #FF80FF)"}
-								color={filter === filterActive && "white"} 
+								bgClip={filter === filterActive ? "" : "text"}
+								bgGradient="linear-gradient(102.47deg, #176FEB -5.34%, #FF80FF 106.58%)"
+								_hover={
+									filter === filterActive && {
+										bgGradient: "linear-gradient(102.47deg, #1667D9 -5.34%, #F279F2 106.58%)"
+									}
+								}
 								key={filter}
 								onClick={() => setFilterActive(filter)}
-							>{filter}
+							>
+								<Text
+									color={filter === filterActive && "white"}
+								>{filter}</Text>
 							</Button>
 						))
 					}
@@ -77,4 +85,4 @@ const Filters = ({ FILTERS, filterActive, setFilterActive, categoryActive, setCa
 	);
 }
 
-export default Filters
+export default Filters 
