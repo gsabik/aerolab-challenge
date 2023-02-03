@@ -20,15 +20,17 @@ const ProductCard = ({ product }) => {
 	const canBuy = product.cost <= user.points;
 
 	return (
-		<VStack spacing={4}>
+		<VStack spacing={6}>
 			<Card boxShadow="lg" w="full">
 				<CardBody>
-					<Image
-						alt={product.name} 
-						py={6} 
-						src={product.img.url} 
-						w="280px"
-					/>
+					<Flex justifyContent="center" w="full">
+						<Image
+							alt={product.name} 
+							py={6} 
+							src={product.img.url} 
+							w="280px"
+						/>
+					</Flex>
 				</CardBody>
 				<Divider/>
 				<CardFooter>
@@ -39,8 +41,8 @@ const ProductCard = ({ product }) => {
 				</CardFooter>
 			</Card>
 			<Button 
-				bgGradient={canBuy && "linear(to-r, #176FEB, #FF80FF)"}
-				borderRadius="lg"
+				bgGradient={canBuy && "linear(102.47deg, #176FEB -5.34%, #FF80FF 106.58%)"}
+				borderRadius="2xl"
 				color={canBuy ? "white" : "neutral.600"}
 				disabled={!canBuy} 
 				_hover={
