@@ -9,6 +9,7 @@ import {
 	Th, 
 } from "@chakra-ui/react";
 import { requestRedeemHistory } from "../api/api";
+import { formattedDate } from "../utils";
 
 const TableHistory = () => {
 	const [redeemHistory, setRedeemHistory] = useState([]);
@@ -36,10 +37,10 @@ const TableHistory = () => {
 				<Tbody>
 					{
 						redeemHistory.map(product => (
-							<Tr key={product.productId}>
+							<Tr key={product.createDate}>
 								<Td fontWeight="semibold">{product.name}</Td>
 								<Td>{product.productId}</Td>
-								<Td>{product.createDate}</Td>
+								<Td>{formattedDate(product.createDate)}</Td>
 								<Td>{product.cost.toLocaleString()}</Td>
 							</Tr>
 						))

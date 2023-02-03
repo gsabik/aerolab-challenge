@@ -1,3 +1,4 @@
+// Variables
 export const AMOUNTS = [1000, 5000, 7000];
 
 export const CATEGORIES = [
@@ -20,3 +21,12 @@ export const FILTERS = {
 	LowestPrice: "Lowest price",
 	HighestPrice: "Highest price"
 };
+
+// Functions
+export const formattedDate = (dateToFormatted) => {
+	const date = new Date (dateToFormatted);
+	const options = {month: "2-digit", day: "2-digit"};
+	const finalDate = date.toLocaleDateString("en-US", options);
+
+	return finalDate;
+}
