@@ -19,15 +19,12 @@ export const UserProvider = ({ children }) => {
 	}
 
 	const addPoints = async(amount) => {
-		if(!user) return;
-
 		return await postPoints(amount).then(() => {
 			setUser({...user, points: user.points + amount});
 		});
 	}
 
 	const redeemProduct = async(product) => {
-
 		return await postProduct(product._id).then(() => {
 			setUser({
 				...user, 
@@ -41,7 +38,7 @@ export const UserProvider = ({ children }) => {
 		getUser();
 	}, []);
 	
-	if(!user || loading === true ) {
+	if (!user || loading === true ) {
 		return <Loader/>;
 	}
 

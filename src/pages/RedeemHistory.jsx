@@ -7,7 +7,6 @@ import {
 import { ArrowBackIcon } from "@chakra-ui/icons"
 import TableHistory from "../components/TableHistory";
 
-
 const RedeemHistory = () => {
 	return (
 		<VStack pt={12} spacing={6}>

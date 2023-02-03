@@ -17,7 +17,6 @@ import aeropayThreeGray from "../assets/icons/aerolab-logo-gray.svg";
 
 const ProductCard = ({ product }) => {
 	const { user, redeemProduct } = useContext(UserContext);
-
 	const canBuy = product.cost <= user.points;
 
 	return (

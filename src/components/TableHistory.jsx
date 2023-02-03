@@ -6,17 +6,20 @@ import {
 	Td, 
 	Tr, 
 	Thead, 
-	Th, 
+	Th,
 } from "@chakra-ui/react";
 import { requestRedeemHistory } from "../api/api";
 import { formattedDate } from "../utils";
+import Loader from "./Loader";
 
 const TableHistory = () => {
 	const [redeemHistory, setRedeemHistory] = useState([]);
+	const [loading, setLoading] = useState(true);
 
 	const getRedeemHistory = async() => {
 		const data = await requestRedeemHistory();
 		setRedeemHistory(data);
+		setLoading(false);
 	}
 
 	useEffect(() => {
@@ -24,30 +27,38 @@ const TableHistory = () => {
 	}, []);
 
 	return (
-		<TableContainer w="full">
-			<Table variant="striped" size="lg">
-				<Thead>
-					<Tr>
-						<Th>Product</Th>
-						<Th>Transaction ID</Th>
-						<Th>Date</Th>
-						<Th>Cost</Th>
-					</Tr>
-				</Thead>
-				<Tbody>
-					{
-						redeemHistory.map(product => (
-							<Tr key={product.createDate}>
-								<Td fontWeight="semibold">{product.name}</Td>
-								<Td>{product.productId}</Td>
-								<Td>{formattedDate(product.createDate)}</Td>
-								<Td>{product.cost.toLocaleString()}</Td>
+		<>
+			{
+				loading 
+				? 
+				<Loader/>
+				:
+				<TableContainer w="full">
+					<Table size="lg" variant="striped">
+						<Thead>
+							<Tr>
+								<Th>Product</Th>
+								<Th>Transaction ID</Th>
+								<Th>Date</Th>
+								<Th>Cost</Th>
 							</Tr>
-						))
-					}
-				</Tbody>
-			</Table>
-		</TableContainer>
+						</Thead>
+						<Tbody>
+							{
+								redeemHistory.map(product => (
+									<Tr key={product.createDate}>
+										<Td fontWeight="semibold">{product.name}</Td>
+										<Td>{product.productId}</Td>
+										<Td>{formattedDate(product.createDate)}</Td>
+										<Td>{product.cost.toLocaleString()}</Td>
+									</Tr>
+								))
+							}
+						</Tbody>
+					</Table>
+				</TableContainer>
+			}
+		</>
 	);
 }
 
