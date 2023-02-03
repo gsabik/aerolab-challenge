@@ -5,12 +5,13 @@ import {
 	Heading, 
 	SimpleGrid, 
 	Stack, 
+	Text,
 	VStack
 } from "@chakra-ui/react";
 import { requestProducts } from "../api/api";
 import { FILTERS } from "../utils";
-import ProductCard from "./ProductCard";
 import Filters from "./Filters";
+import ProductCard from "./ProductCard";
 import Pagination from "./Pagination";
 import Count from "./Count";
 
@@ -61,7 +62,16 @@ const ProductList = () => {
 			py={12} 
 			spacing={12}
 		>
-			<Heading color="neutral.900" fontWeight="black">TECH PRODUCTS</Heading>
+			<Heading fontWeight="black">
+				<Text 
+					as="span"
+					bgClip="text"
+					bgGradient="linear(102.47deg, #176FEB -5.34%, #FF80FF 106.58%)"
+				>TECH
+				</Text>
+				{" "}
+				<Text as="span" color="neutral.900">PRODUCTS</Text>
+			</Heading>
 			<Flex justifyContent="space-between" w="full">
 				<Filters 
 					FILTERS={FILTERS} 

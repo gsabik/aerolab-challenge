@@ -37,7 +37,7 @@ const ModalPoints = () => {
 			>
 				<HStack>
 					<Image src={aeropayOne}/>
-					<Text>{user.points.toLocaleString()}</Text>
+					<Text bgClip="text" bgGradient="linear(102.47deg, #176FEB -5.34%, #FF80FF 106.58%)">{user.points.toLocaleString()}</Text>
 				</HStack>
 			</Button>
 			<Modal
