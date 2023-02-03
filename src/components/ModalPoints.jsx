@@ -21,7 +21,7 @@ import aeropayThree from "../assets/icons/aeropay-3.svg";
 import Aerocard from "./Aerocard";
 
 const ModalPoints = () => {
-	const [points, setPoints] = useState(false);
+	const [points, setPoints] = useState(5000);
 	const { user, addPoints } = useContext(UserContext);
 	const { isOpen, onOpen, onClose } = useDisclosure();
 
@@ -30,7 +30,7 @@ const ModalPoints = () => {
 			<Button
 				bgColor="white"
 				border="1px"
-				boxShadow="sm"
+				boxShadow="md"
 				borderColor="#DAE4F2"
 				borderRadius="xl"
 				onClick={onOpen}
@@ -45,11 +45,12 @@ const ModalPoints = () => {
 				isOpen={isOpen}
 				onClose={onClose}
 				motionPreset="slideInBottom"
-				size="xs"
+				size="sm"
 			>
 				<ModalOverlay/>
 				<ModalContent>
 					<ModalHeader>Add balance</ModalHeader>
+					<Divider/>
 					<ModalBody py={6}>
 						<VStack spacing={6}>
 							<Aerocard/>
@@ -57,14 +58,20 @@ const ModalPoints = () => {
 								{
 									AMOUNTS.map(amount => (
 										<Button
-											bgGradient={amount === points ? "linear(to-r, #176FEB, #FF80FF)" : "#E5F0FF"}
-											borderRadius="md"
-											color={amount === points ? "white" : "#176FEB"}
+											bgClip={amount === points ? "" : "text"}
+											bgGradient="linear-gradient(102.47deg, #176FEB -5.34%, #FF80FF 106.58%)"
 											fontSize="lg"
+											borderRadius="xl"
+											_hover={
+												amount === points && {
+													bgGradient: "linear-gradient(102.47deg, #1667D9 -5.34%, #F279F2 106.58%)"
+												}
+											}
 											onClick={() => setPoints(amount)} 
 											key={amount}
 											w="full"
-										>{amount.toLocaleString()}
+										>
+											<Text color={amount === points && "white"}>{amount.toLocaleString()}</Text>
 										</Button>
 									))
 								}
@@ -72,16 +79,20 @@ const ModalPoints = () => {
 						</VStack>
 						<Flex justifyContent="center" w="full">
 							<Button
-								bgGradient="linear(to-r, #176FEB, #FF80FF)"
+								bgGradient="linear-gradient(102.47deg, #176FEB -5.34%, #FF80FF 106.58%)"
+								borderRadius="2xl"
 								color="white"
+								_hover={{
+									bgGradient: "linear-gradient(102.47deg, #1667D9 -5.34%, #F279F2 106.58%)"
+								}}
 								onClick={() => addPoints(points)}
 								mt={6}
 								size="lg"
 								w="full"
 							>
 								<HStack>
-									<Image src={aeropayThree}/>
-									<Text>Add points</Text>
+									<Image alt={aeropayThree} src={aeropayThree}/>
+									<Text fontSize="xl">Add points</Text>
 								</HStack>
 							</Button>
 						</Flex> 
