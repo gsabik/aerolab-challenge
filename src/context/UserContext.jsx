@@ -39,7 +39,7 @@ export const UserProvider = ({ children }) => {
 	}, []);
 	
 	if (!user || loading === true ) {
-		return <Loader/>;
+		return <Loader customHeight="100vh"/>;
 	}
 
 	return(

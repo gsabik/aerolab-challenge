@@ -1,8 +1,8 @@
 import { Center, CircularProgress } from "@chakra-ui/react";
 
-const Loader = () => {
+const Loader = ({ customHeight }) => {
 	return (
-		<Center h="100vh">
+		<Center h={customHeight}>
 			<CircularProgress color="purple.500" isIndeterminate/>
 		</Center>
 	);

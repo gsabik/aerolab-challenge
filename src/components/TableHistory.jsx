@@ -31,7 +31,7 @@ const TableHistory = () => {
 			{
 				loading 
 				? 
-				<Loader/>
+				<Loader customHeight="70vh"/>
 				:
 				<TableContainer w="full">
 					<Table size="lg" variant="striped">
