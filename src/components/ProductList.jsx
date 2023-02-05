@@ -67,10 +67,11 @@ const ProductList = () => {
 					as="span"
 					bgClip="text"
 					bgGradient="linear(102.47deg, #176FEB -5.34%, #FF80FF 106.58%)"
-				>TECH
+					textTransform="uppercase"
+				>Tech
 				</Text>
 				{" "}
-				<Text as="span" color="neutral.900">PRODUCTS</Text>
+				<Text as="span" color="neutral.900" textTransform="uppercase">Products</Text>
 			</Heading>
 			<Flex justifyContent="space-between" w="full">
 				<Filters 
@@ -90,7 +91,7 @@ const ProductList = () => {
 				</Box>
 			</Flex>
 			<SimpleGrid 
-				columns={[1, 2, 3, 4]} 
+				columns={{ base: 1, sm: 2, md: 3, xl: 4 }} 
 				gap={6} 
 				w="full"
 			>
