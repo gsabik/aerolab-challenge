@@ -14,7 +14,7 @@ import ModalPoints from "./ModalPoints";
 
 const Navbar = () => {
 	return (
-		<Box>
+		<Box zIndex={10}>
 			<Container maxWidth="8xl">
 				<Flex
 					alignItems="center"

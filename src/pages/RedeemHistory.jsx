@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import {
+	Container,
 	Flex,
 	IconButton,
 	VStack
@@ -9,14 +10,16 @@ import TableHistory from "../components/TableHistory";
 
 const RedeemHistory = () => {
 	return (
-		<VStack pt={12} spacing={6}>
-			<Flex w="full">
-				<Link to="/">
-					<IconButton icon={<ArrowBackIcon/>} size="md"/>
-				</Link>
-			</Flex>
-			<TableHistory/>
-		</VStack>
+		<Container maxWidth="8xl">
+			<VStack pt={12} spacing={6}>
+				<Flex w="full">
+					<Link to="/">
+						<IconButton icon={<ArrowBackIcon/>} size="md"/>
+					</Link>
+				</Flex>
+				<TableHistory/>
+			</VStack>
+		</Container>
 	);
 }
 
