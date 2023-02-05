@@ -30,7 +30,7 @@ const Hero = () => {
 						>
 							<Text 
 								color="neutral.600" 
-								fontSize={{ base: "md", xl: "lg" }}
+								fontSize={{ base: "md", xl: "xl" }}
 								fontWeight="semibold" 
 								textTransform="uppercase"
 							>Explore the
@@ -53,7 +53,7 @@ const Hero = () => {
 							</Heading>
 							<Text 
 								color="neutral.600" 
-								fontSize={{ base: "md", xl: "lg" }} 
+								fontSize={{ base: "md", xl: "xl" }} 
 								fontWeight="semibold"
 							>Here you’ll be able to exchange all of your hard-earned Aeropoints and exchange them for cool tech.
 							</Text>
@@ -64,6 +64,7 @@ const Hero = () => {
 								borderRadius="2xl"
 								bgGradient="linear(102.47deg, #176FEB -5.34%, #FF80FF 106.58%)" 
 								color="white" 
+								fontSize="xl"
 								h="75px"
 								_hover={{
 									bgGradient: "linear-gradient(102.47deg, #1667D9 -5.34%, #F279F2 106.58%)"

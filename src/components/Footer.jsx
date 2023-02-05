@@ -10,8 +10,9 @@ const Footer = () => {
 	return (
 		<Flex 
 			alignItems="center" 
+			h="200px"
+			fontSize="xl" 
 			justifyContent="center" 
-			h="200px" 
 			w="full"
 		>
 			<a href="https://github.com/gsabik/aerolab-challenge" target="_blank">

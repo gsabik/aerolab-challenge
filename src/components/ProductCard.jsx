@@ -47,6 +47,7 @@ const ProductCard = ({ product }) => {
 				borderRadius="2xl"
 				color={canBuy ? "white" : "neutral.600"}
 				disabled={!canBuy} 
+				fontSize="xl"
 				_hover={
 					canBuy && {
 						bgGradient: "linear-gradient(102.47deg, #1667D9 -5.34%, #F279F2 106.58%)"
