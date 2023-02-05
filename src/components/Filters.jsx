@@ -20,10 +20,10 @@ const Filters = ({ FILTERS, filterActive, setFilterActive, categoryActive, setCa
 	];
 
 	return (
-		<Stack direction={{ base: "column", xl: "row" }} spacing={6}>
+		<Stack color="neutral.600" direction={{ base: "column", xl: "row" }} fontSize="xl" spacing={6}>
 			<HStack spacing={3}>
 				<Box display={{ base: "none", xl: "flex" }}>
-					<Text noOfLines={1}>Filter by:</Text>
+					<Text fontWeight="semibold">Filter by:</Text>
 				</Box>
 				<Menu>
 					<MenuButton
@@ -32,6 +32,8 @@ const Filters = ({ FILTERS, filterActive, setFilterActive, categoryActive, setCa
 						borderColor="#DAE4F2"
 						borderRadius="xl"
 						color="neutral.600"
+						fontSize="xl"
+						p={6}
 						variant="outlined"
 					>
 						<HStack spacing={12}>
@@ -43,7 +45,6 @@ const Filters = ({ FILTERS, filterActive, setFilterActive, categoryActive, setCa
 						{
 							CATEGORIES.map(category => (
 								<MenuItem
-									color="neutral.600" 
 									fontWeight="semibold"
 									key={category} 
 									onClick={(e) => setCategoryActive(e.target.innerText)}
@@ -57,14 +58,16 @@ const Filters = ({ FILTERS, filterActive, setFilterActive, categoryActive, setCa
 			<HStack spacing={3}>
 				<Divider display={{ base: "none", xl:"flex" }} orientation="vertical"/>
 				<Box display={{ base: "none", xl: "flex" }}>
-					<Text noOfLines={1}>Sort by:</Text>
+					<Text fontWeight="semibold">Sort by:</Text>
 				</Box>
 				<HStack spacing={6}>
 					{
 						filters.map(filter => (
-							<Button
-								bgClip={filter === filterActive ? "" : "text"}
-								bgGradient="linear-gradient(102.47deg, #176FEB -5.34%, #FF80FF 106.58%)"
+							<Box
+								cursor="pointer"
+								bgClip="text"
+								bg={`#E5F0FF ${filter === filterActive ? "linear-gradient(102.47deg, #176FEB -5.34%, #FF80FF 106.58%)" : ""}`}
+								borderRadius="xl"
 								_hover={
 									filter === filterActive && {
 										bgGradient: "linear-gradient(102.47deg, #1667D9 -5.34%, #F279F2 106.58%)"
@@ -72,11 +75,16 @@ const Filters = ({ FILTERS, filterActive, setFilterActive, categoryActive, setCa
 								}
 								key={filter}
 								onClick={() => setFilterActive(filter)}
+								px="6"
+								py={3}
 							>
 								<Text
+									bgClip="text"
+									bgGradient={filter === filterActive ? "" : "linear-gradient(102.47deg, #1667D9 -5.34%, #F279F2 106.58%)"}
 									color={filter === filterActive && "white"}
+									fontWeight="semibold"
 								>{filter}</Text>
-							</Button>
+							</Box>
 						))
 					}
 				</HStack>

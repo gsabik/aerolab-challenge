@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { UserContext } from "../context/UserContext";
 import { 
+	Box,
 	Button, 
 	Divider, 
 	Flex, 
@@ -33,6 +34,7 @@ const ModalPoints = () => {
 				boxShadow="md"
 				borderColor="#DAE4F2"
 				borderRadius="xl"
+				fontSize="xl"
 				onClick={onOpen}
 			>
 				<HStack>
@@ -48,7 +50,7 @@ const ModalPoints = () => {
 				size="sm"
 			>
 				<ModalOverlay/>
-				<ModalContent>
+				<ModalContent fontSize="xl">
 					<ModalHeader>Add balance</ModalHeader>
 					<Divider/>
 					<ModalBody py={6}>
@@ -57,11 +59,11 @@ const ModalPoints = () => {
 							<HStack justifyContent="space-between" w="full">
 								{
 									AMOUNTS.map(amount => (
-										<Button
-											bgClip={amount === points ? "" : "text"}
-											bgGradient="linear-gradient(102.47deg, #176FEB -5.34%, #FF80FF 106.58%)"
-											fontSize="lg"
+										<Box
+											bgClip="text"
+											bg={`#E5F0FF ${amount === points ? "linear-gradient(102.47deg, #176FEB -5.34%, #FF80FF 106.58%)" : ""}`}
 											borderRadius="xl"
+											cursor="pointer"
 											_hover={
 												amount === points && {
 													bgGradient: "linear-gradient(102.47deg, #1667D9 -5.34%, #F279F2 106.58%)"
@@ -69,10 +71,17 @@ const ModalPoints = () => {
 											}
 											onClick={() => setPoints(amount)} 
 											key={amount}
+											p={2}
+											textAlign="center"	
 											w="full"
 										>
-											<Text color={amount === points && "white"}>{amount.toLocaleString()}</Text>
-										</Button>
+											<Text
+												bgClip="text"
+												bgGradient={amount === points ? "" : "linear-gradient(102.47deg, #1667D9 -5.34%, #F279F2 106.58%)"}
+												color={amount === points && "white"}
+												fontWeight="semibold"
+											>{amount.toLocaleString()}</Text>
+										</Box>
 									))
 								}
 							</HStack>
@@ -92,7 +101,7 @@ const ModalPoints = () => {
 							>
 								<HStack>
 									<Image alt={aeropayThree} src={aeropayThree}/>
-									<Text fontSize="xl">Add points</Text>
+									<Text>Add points</Text>
 								</HStack>
 							</Button>
 						</Flex> 

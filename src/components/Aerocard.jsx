@@ -21,7 +21,7 @@ const Aerocard = () => {
 			fontWeight="semibold"
 			h="180px"
 			justifyContent="space-between"
-			p={4}
+			p={6}
 			w="full"
 		>
 			<HStack justifyContent="space-between" w="full">
@@ -29,8 +29,8 @@ const Aerocard = () => {
 				<Image alt={aeropayTwo} src={aeropayTwo}/>
 			</HStack>
 			<HStack justifyContent="space-between" w="full"> 
-				<Text>{user.name}</Text>
-				<Text>{formattedDate(user.createDate)}</Text>
+				<Text fontSize="sm">{user.name}</Text>
+				<Text fontSize="sm">{formattedDate(user.createDate)}</Text>
 			</HStack>
 		</Flex>
 	);
