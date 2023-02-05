@@ -11,7 +11,7 @@ import TableHistory from "../components/TableHistory";
 const RedeemHistory = () => {
 	return (
 		<Container maxWidth="8xl">
-			<VStack pt={12} spacing={6}>
+			<VStack py={12} spacing={6}>
 				<Flex w="full">
 					<Link to="/">
 						<IconButton icon={<ArrowBackIcon/>} size="md"/>

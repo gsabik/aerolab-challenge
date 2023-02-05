@@ -12,9 +12,12 @@ import { requestRedeemHistory } from "../api/api";
 import { formattedDate } from "../utils";
 import Loader from "./Loader";
 
+
 const TableHistory = () => {
 	const [redeemHistory, setRedeemHistory] = useState([]);
 	const [loading, setLoading] = useState(true);
+	
+	const thData = ["Product", "Transaction ID", "Date", "Cost"];
 
 	const getRedeemHistory = async() => {
 		const data = await requestRedeemHistory();
@@ -37,10 +40,11 @@ const TableHistory = () => {
 					<Table size="lg" variant="striped">
 						<Thead>
 							<Tr>
-								<Th>Product</Th>
-								<Th>Transaction ID</Th>
-								<Th>Date</Th>
-								<Th>Cost</Th>
+								{
+									thData.map(option => (
+										<Th fontSize="lg" key={option}>{option}</Th>
+									))
+								}
 							</Tr>
 						</Thead>
 						<Tbody>
