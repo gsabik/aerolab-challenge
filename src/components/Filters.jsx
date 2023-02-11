@@ -20,7 +20,12 @@ const Filters = ({ FILTERS, filterActive, setFilterActive, categoryActive, setCa
 	];
 
 	return (
-		<Stack color="neutral.600" direction={{ base: "column", xl: "row" }} fontSize="xl" spacing={6}>
+		<Stack 
+			color="neutral.600" 
+			direction={{ base: "column", xl: "row" }} 
+			fontSize="lg"
+			spacing={6}
+		>
 			<HStack spacing={3}>
 				<Box display={{ base: "none", xl: "flex" }}>
 					<Text fontWeight="semibold">Filter by:</Text>
@@ -32,12 +37,11 @@ const Filters = ({ FILTERS, filterActive, setFilterActive, categoryActive, setCa
 						borderColor="#DAE4F2"
 						borderRadius="xl"
 						color="neutral.600"
-						fontSize="xl"
-						p={6}
+						py={4}
 						variant="outlined"
 					>
 						<HStack spacing={12}>
-							<Text>{categoryActive || "All Products"}</Text>
+							<Text pr={6}>{categoryActive || "All Products"}</Text>
 							<Box color="black" fontSize="10px">▼</Box>
 						</HStack>
 					</MenuButton>
@@ -60,7 +64,7 @@ const Filters = ({ FILTERS, filterActive, setFilterActive, categoryActive, setCa
 				<Box display={{ base: "none", xl: "flex" }}>
 					<Text fontWeight="semibold">Sort by:</Text>
 				</Box>
-				<HStack spacing={6}>
+				<Stack direction={{ base: "column", sm: "row" }} spacing={6}>
 					{
 						filters.map(filter => (
 							<Box
@@ -75,8 +79,8 @@ const Filters = ({ FILTERS, filterActive, setFilterActive, categoryActive, setCa
 								}
 								key={filter}
 								onClick={() => setFilterActive(filter)}
-								px="6"
-								py={3}
+								py={2}
+								px={{ base: 4, xl: 6 }}
 							>
 								<Text
 									bgClip="text"
@@ -87,7 +91,7 @@ const Filters = ({ FILTERS, filterActive, setFilterActive, categoryActive, setCa
 							</Box>
 						))
 					}
-				</HStack>
+				</Stack>
 			</HStack>
 		</Stack>
 	);

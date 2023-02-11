@@ -3,7 +3,7 @@ import { HStack, Text } from "@chakra-ui/react";
 const Count = ({ current, total, currentPage }) => {
 	
 	return (
-		<HStack color="neutral.600" fontSize="xl" fontWeight="semibold">
+		<HStack color="neutral.600" fontSize={{ base: "lg", xl: "xl" }}fontWeight="semibold">
 			<Text 
 				as="span"
 				bgClip="text"

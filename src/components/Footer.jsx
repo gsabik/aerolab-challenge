@@ -12,13 +12,14 @@ const Footer = () => {
 			alignItems="center" 
 			h="200px"
 			fontSize="xl" 
+			fontWeight="semibold"
 			justifyContent="center" 
 			w="full"
 		>
 			<a href="https://github.com/gsabik/aerolab-challenge" target="_blank">
 				<HStack>
 					<Image alt={githubDefault} src={githubDefault}/>
-					<Text color="neutral.600" fontWeight="semibold">View this repository</Text>
+					<Text color="neutral.600">View this repository</Text>
 				</HStack>
 			</a>
 		</Flex>

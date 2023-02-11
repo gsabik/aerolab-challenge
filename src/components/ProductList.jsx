@@ -62,7 +62,7 @@ const ProductList = () => {
 			py={12} 
 			spacing={12}
 		>
-			<Heading fontWeight="black">
+			<Heading fontSize={{ base: "32px", xl: "5xl" }} fontWeight="black">
 				<Text 
 					as="span"
 					bgClip="text"
