@@ -15,11 +15,12 @@ const WalkthroughCard = ({ title, description, icon, imageDesktop, imageResponsi
 			borderColor="#DAE4F2" 
 			borderRadius="32px"
 			fontSize="xl"
-			h={{ base: "477px", xl: "676px" }}
+			h={{ base: "408px", md: "477px", xl: "676px" }}
 			m={6}
 			p={3}
 			transform={{ base: "none", xl: styles.transform }}
-			w={{ base: "323px", xl: "532px" }}
+			w={{ base: "335px", md: "323px", xl: "532px" }}
+			zIndex={20}
 		>
 			<Flex 
 				border="1px"
@@ -45,8 +46,8 @@ const WalkthroughCard = ({ title, description, icon, imageDesktop, imageResponsi
 						<Image
 							alt={imageResponsive} 
 							src={imageResponsive} 
-							h="290px"
-							w="300px"	
+							h={{ base: "230px", md: "299px" }}
+							w={{ base: "311px", md: "299px"	}}
 						/>
 					</Flex>
 				</Flex>
@@ -65,7 +66,7 @@ const WalkthroughCard = ({ title, description, icon, imageDesktop, imageResponsi
 						<Text
 							bgClip="text"
 							bgGradient="linear(102.47deg, #176FEB -5.34%, #FF80FF 106.58%)" 
-							fontSize={{ base: "2xl", xl: "2rem" }}
+							fontSize={{ base: "2xl", xl: "32px" }}
 							fontWeight="black"
 						>{title}
 						</Text>
