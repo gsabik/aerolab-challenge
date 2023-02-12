@@ -10,7 +10,7 @@ const Walkthrough = () => {
 			direction={{ base: "column", lg: "row" }} 
 			h={{ base: "auto", xl: "528px"}}
 			justifyContent="center"
-			my={24}
+			my={{ base: 0, xl: 24 }}
 			pt={{ base: 24, xl: 0 }}
 			w="full"
 			>

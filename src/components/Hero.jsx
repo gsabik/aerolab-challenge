@@ -17,7 +17,7 @@ const Hero = () => {
 	return (
 		<Flex 
 			bgImage={wavesPattern} 
-			my={{ base: "none", xl: 24 }}
+			my={{ base: 0, xl: 24 }}
 			py={9}
 		>
 			<Container maxWidth="8xl">
@@ -76,7 +76,7 @@ const Hero = () => {
 								textTransform="uppercase"
 								w="fit-content"
 							>
-								<a href="#">View all products</a>
+								<a href="#productList">View all products</a>
 								<Image alt={arrowDown} src={arrowDown}/>
 							</Flex>
 						</Flex>

@@ -59,6 +59,8 @@ const ProductList = () => {
 	return (
 		<VStack 
 			alignItems="flex-start" 
+			id="productList"
+			my={{ base: 0, xl: 24}}
 			py={12} 
 			spacing={12}
 		>

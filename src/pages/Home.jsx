@@ -6,7 +6,7 @@ import Walkthrough from "../components/Walkthrough";
 
 const Home = () => {
 	return (
-		<Flex direction="column">
+		<Flex direction="column" scrollBehavior="smooth" overflowY="auto">
 			<Hero/>
 			<Walkthrough/>
 			<Container maxWidth="8xl">
