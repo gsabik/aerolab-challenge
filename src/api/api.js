@@ -13,9 +13,7 @@ export const requestUser = async() => {
 		headers: HEADERS
 	});
 
-	const user = await response.json();
-
-	return user;
+	return await response.json();
 }
 
 export const requestProducts = async() => {
@@ -25,9 +23,7 @@ export const requestProducts = async() => {
 		headers: HEADERS
 	});
 
-	const products = await response.json();
-
-	return products;
+	return await response.json();
 }
 
 export const requestRedeemHistory = async() => {
@@ -37,9 +33,7 @@ export const requestRedeemHistory = async() => {
 		headers: HEADERS
 	});
 
-	const redeemHistory = await response.json();
-
-	return redeemHistory;
+	return await response.json();
 }
 
 export const postPoints = async(points) => {
@@ -50,9 +44,7 @@ export const postPoints = async(points) => {
 		headers: HEADERS
 	});
 
-	const postPoints = await response.json();
-
-	return postPoints;
+	return await response.json();
 }
 
 export const postProduct = async(id) => {
@@ -62,7 +54,5 @@ export const postProduct = async(id) => {
 		headers: HEADERS
 	});
 
-	const redeem = await response.json();
-
-	return redeem;
+	return await response.json();
 }
