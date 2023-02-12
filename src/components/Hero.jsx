@@ -82,7 +82,7 @@ const Hero = () => {
 						</Flex>
 					</VStack>
 					<Flex justifyContent="center" w="full">
-						<Box display={{ base: "none", xl: "flex" }} zIndex={10}>
+						<Box display={{ base: "none", xl: "flex"}} zIndex={10}>
 							<Image 
 								alt={heroDesktop}
 								h="750px"
@@ -90,13 +90,13 @@ const Hero = () => {
 								mt="-150px"
 							/>
 						</Box>
-						<Box display={{ base: "flex", xl: "none" }} zIndex={10}>
+						<Box display={{ base: "flex", xl: "none"}} zIndex={10}>
 							<Image 
 								alt={heroResponsive}
 								h="520px"
 								src={heroResponsive} 
 								mt="-200px"
-								transform="translateY(215px)"
+								transform="translateY(200px)"
 							/>
 						</Box>
 						<Flex
