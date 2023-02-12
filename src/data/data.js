@@ -1,12 +1,12 @@
-import imageOneDesktop from "./assets/illustrations/walkthroug-1-desktop.png";
-import imageOneResponsive from "./assets/illustrations/walkthroug-1-responsive.png";
-import iconOne from "./assets/icons/walkthrough-1.svg";
-import imageTwoDesktop from "./assets/illustrations/walkthroug-2-desktop.png";
-import imageTwoResponsive from "./assets/illustrations/walkthroug-2-responsive.png";
-import iconTwo from "./assets/icons/walkthrough-2.svg";
-import imageThreeDesktop from "./assets/illustrations/walkthroug-3-desktop.png";
-import imageThreeResponsive from "./assets/illustrations/walkthroug-3-responsive.png";
-import iconThree from "./assets/icons/walkthrough-3.svg";
+import imageOneDesktop from "../assets/illustrations/walkthroug-1-desktop.png";
+import imageOneResponsive from "../assets/illustrations/walkthroug-1-responsive.png";
+import iconOne from "../assets/icons/walkthrough-1.svg";
+import imageTwoDesktop from "../assets/illustrations/walkthroug-2-desktop.png";
+import imageTwoResponsive from "../assets/illustrations/walkthroug-2-responsive.png";
+import iconTwo from "../assets/icons/walkthrough-2.svg";
+import imageThreeDesktop from "../assets/illustrations/walkthroug-3-desktop.png";
+import imageThreeResponsive from "../assets/illustrations/walkthroug-3-responsive.png";
+import iconThree from "../assets/icons/walkthrough-3.svg";
 
 export const walkthroughCardsData = [
 	{

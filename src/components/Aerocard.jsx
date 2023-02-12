@@ -6,7 +6,7 @@ import {
 	Image,
 	Text 
 } from "@chakra-ui/react";
-import { formattedDate } from "../utils";
+import { formattedDate } from "../utils/utils";
 import aeropayTwo from "../assets/icons/aeropay-2.svg";
 
 const Aerocard = () => {

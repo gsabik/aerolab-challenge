@@ -16,7 +16,7 @@ import {
 	useDisclosure,
 	VStack
 } from "@chakra-ui/react";
-import { AMOUNTS } from "../utils";
+import { AMOUNTS } from "../utils/utils";
 import aeropayOne from "../assets/icons/aeropay-1.svg";
 import aeropayThree from "../assets/icons/aeropay-3.svg";
 import Aerocard from "./Aerocard";

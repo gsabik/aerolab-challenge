@@ -9,7 +9,7 @@ import {
 	Th,
 } from "@chakra-ui/react";
 import { requestRedeemHistory } from "../api/api";
-import { formattedDate } from "../utils";
+import { formattedDate } from "../utils/utils";
 import Loader from "./Loader";
 
 

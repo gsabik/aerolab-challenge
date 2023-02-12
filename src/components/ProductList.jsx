@@ -9,7 +9,7 @@ import {
 	VStack
 } from "@chakra-ui/react";
 import { requestProducts } from "../api/api";
-import { FILTERS } from "../utils";
+import { FILTERS } from "../utils/utils";
 import Filters from "./Filters";
 import ProductCard from "./ProductCard";
 import Pagination from "./Pagination";

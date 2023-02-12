@@ -10,7 +10,7 @@ import {
 	Stack,
 	Text 
 } from "@chakra-ui/react";
-import { CATEGORIES } from "../utils";
+import { CATEGORIES } from "../utils/utils";
 
 const Filters = ({ FILTERS, filterActive, setFilterActive, categoryActive, setCategoryActive }) => {
 	const filters = [

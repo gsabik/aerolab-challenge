@@ -1,5 +1,5 @@
 import { Flex } from "@chakra-ui/react";
-import { walkthroughCardsData } from "../data";
+import { walkthroughCardsData } from "../data/data";
 import WalkthroughCard from "./WalkthroughCard";
 
 const Walkthrough = () => {
